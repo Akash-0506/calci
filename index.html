@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calci</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            margin: 0;
+        }
+
+        .con {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0, 255, 200, 0.4);
+            text-align: center;
+            width: 350px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        label {
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin-top: 8px;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            box-shadow: inset 0 0 8px rgba(0, 255, 200, 0.2);
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(90deg, #00f7ff, #00ff8f);
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 200, 0.6);
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 255, 200, 0.9);
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00f7ff, 0 0 20px #00ff8f;
+            animation: glow 1s infinite alternate;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00f7ff; }
+            to { text-shadow: 0 0 20px #00ff8f; }
+        }
+    </style>
+</head>
+<body>
+<div class="con">
+    <label for="num1">FIRST NUMBER: </label>
+    <input type="text" id="num1" placeholder="enter your first number" required>
+     <br><br>
+    <label for="num2">SECOND NUMBER: </label>
+    <input type="text" id="num2" placeholder="enter your sencond number" required>
+    <br><br>
+    <label for="op">OPERATOR: </label>
+    <input type="text" id="op" placeholder="what operation you do"><br><br>
+    <button id="button" onclick="submit()">CALCULATE</button>
+    <h2 id="output"></h2>
+</div>
+    <script>
+            function submit(){         
+      let numone=Number(document.getElementById("num1").value);
+    let numtwo=Number(document.getElementById("num2").value);
+  let result=(document.getElementById("op").value);
+  console.log(numone);
+      console.log(numtwo); 
+       if(result==="+"){
+                 let a=numone+numtwo;
+                 console.log("After Add",a);
+                 let last=document.getElementById("output");
+                 last.textContent=a;
+                 
+       }
+       else if(result==="-"){
+        let b=numone-numtwo;
+        console.log("After Minus",b);
+        let last=document.getElementById("output");
+                 last.textContent=b;
+       }
+       else if(result==="*"){
+       let c= numone*numtwo;
+          console.log("After Multiply",c);
+          let last=document.getElementById("output");
+                 last.textContent=c;
+          
+       }
+        else if(result==="/"){
+           let d= numone/numtwo;
+           console.log("After divide",d);
+           let last=document.getElementById("output");
+                 last.textContent=d;
+           
+        }
+     
+      }
+    </script>
+</body>
+</html>
